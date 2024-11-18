@@ -4,7 +4,7 @@ This file contains tests for the web app portion
 from io import BytesIO
 from unittest.mock import patch
 import pytest
-from web_app.app import app, audio_collection, metadata_collection
+from app import app, audio_collection, metadata_collection
 
 
 def mock_test():
