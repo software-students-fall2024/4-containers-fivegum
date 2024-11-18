@@ -7,7 +7,7 @@ from io import BytesIO
 from unittest.mock import patch
 import importlib
 
-sys.path.append(os.path.join(os.path.dirname(__file__), 'web-app'))
+sys.path.append(os.path.join(os.path.dirname(__file__), 'web_app'))
 app_module = importlib.import_module('app')
 app = app_module.app
 audio_collection = app_module.audio_collection
