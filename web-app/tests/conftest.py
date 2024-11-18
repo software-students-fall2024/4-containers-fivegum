@@ -3,10 +3,10 @@ Configuring the webapp tests
 """
 
 import pytest
+from dotenv import load_dotenv
 
 # pylint: disable=import-error
 from app import app
-from dotenv import load_dotenv
 
 load_dotenv()
 
