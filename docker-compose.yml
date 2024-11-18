@@ -34,4 +34,5 @@ services:
       - SECRET=${SECRET}
     ports:
       - "8080:8080"
+    working_dir: /web_app
     command: python3 app.py
