@@ -6,6 +6,9 @@ import pytest
 
 # pylint: disable=import-error
 from app import app
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 @pytest.fixture

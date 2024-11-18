@@ -17,6 +17,7 @@ pytest = "*"
 pytest = "*"
 black = "*"
 pylint = "*"
+pytest-dotenv = "*"
 
 [scripts]
 format = "black ."
