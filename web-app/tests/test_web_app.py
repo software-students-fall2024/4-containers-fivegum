@@ -11,6 +11,7 @@ from unittest.mock import patch
 import pytest
 
 # pylint: disable=unused-import
+# pylint: disable=import-error
 from app import app, audio_collection, metadata_collection
 
 
