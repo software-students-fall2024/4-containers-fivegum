@@ -3,7 +3,9 @@ Configuring the webapp tests
 """
 
 import pytest
-from ..app import app
+
+# pylint: disable=import-error
+from app import app
 
 
 @pytest.fixture
