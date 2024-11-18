@@ -15,7 +15,7 @@ import gridfs
 app = Flask(__name__)
 
 # MongoDB connection
-client = MongoClient(os.environ["MONGODB_URI"])
+client = MongoClient(os.environ["DB_URI"])
 db = client["transcription_db"]
 
 # Collections

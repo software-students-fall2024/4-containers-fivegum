@@ -21,7 +21,7 @@ jobs:
 
       - name: Set Environment Variables
         run: |
-          echo "MONGODB_URI=${{ secrets.MONGODB_URI }}" >> $GITHUB_ENV
+          echo "DB_URI=${{ secrets.DB_URI }}" >> $GITHUB_ENV
           echo "MONGODB_USERNAME=${{ secrets.MONGODB_USERNAME }}" >> $GITHUB_ENV
           echo "MONGODB_PASSWORD=${{ secrets.MONGODB_PASSWORD }}" >> $GITHUB_ENV       
           echo "SECRET=${{ secrets.SECRET }}" >> $GITHUB_ENV       
@@ -36,6 +36,10 @@ jobs:
       - name: List containers
         run: |
           docker ps
+
+      - name: Install Dependencies in Web App
+        run: |
+          docker compose exec web-app pip install pytest python-dotenv
 
       - name: Run Tests in Machine Learning Client
         run: |

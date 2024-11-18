@@ -4,16 +4,23 @@ This file contains tests for the web app portion
 import sys
 import os
 from io import BytesIO
-from unittest.mock import patch
+from unittest.mock import patch, MagicMock
 import importlib
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), 'web_app')))
+webapp_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.append(webapp_path)
 app_module = importlib.import_module('app')
 app = app_module.app
 audio_collection = app_module.audio_collection
 metadata_collection = app_module.metadata_collection
 
 import pytest
+
+@pytest.fixture
+def client():
+    app.config['TESTING'] = True
+    with app.test_client() as client:
+        yield client
 
 
 def mock_test():
