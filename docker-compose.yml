@@ -32,6 +32,7 @@ services:
     environment:
       - DB_URI=${MONGODB_URI}
       - SECRET=${SECRET}
+      - PYTHONPATH=/web_app
     ports:
       - "8080:8080"
     command: python3 app.py
