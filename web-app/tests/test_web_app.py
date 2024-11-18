@@ -1,10 +1,18 @@
 """
 This file contains tests for the web app portion
 """
+import sys
+import os
 from io import BytesIO
 from unittest.mock import patch
 import pytest
-from app import app, audio_collection, metadata_collection
+import importlib
+
+sys.path.append(os.path.join(os.path.dirname(__file__), 'web-app'))
+app_module = importlib.import_module('app')
+app = app_module.app
+audio_collection = app_module.audio_collection
+metadata_collection = app_module.metadata_collectio
 
 
 def mock_test():
