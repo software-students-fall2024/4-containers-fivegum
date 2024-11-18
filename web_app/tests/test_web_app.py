@@ -2,10 +2,14 @@
 This file contains tests for the web app
 """
 
+import sys
+import os
 from io import BytesIO
 from unittest.mock import patch
 import pytest
-from ..app import app, audio_collection, metadata_collection
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'web_app')))
+from app import app, audio_collection, metadata_collection
 
 
 def mock_test():
