@@ -1,6 +1,6 @@
 FROM python:3.9
 
-WORKDIR /web_app
+WORKDIR /app
 
 RUN pip install pipenv
 
