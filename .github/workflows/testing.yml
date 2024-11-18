@@ -19,23 +19,13 @@ jobs:
       - name: Create Data Directory
         run: mkdir -p ./data
 
-      - name: Set Environment Variables for Web App
-          env:
-            MONGODB_URI: ${{ secrets.MONGODB_URI }}
-            MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}
-            MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
-            SECRET: ${{ secrets.SECRET }}
-            MY_SECRET: ${{ secrets.MY_SECRET }}
-          run: echo "Environment variables set for web app"
-
-      - name: Set Environment Variables for ML Client
-          env:
-            MONGODB_URI: ${{ secrets.MONGODB_URI }}
-            MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}
-            MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
-            SECRET: ${{ secrets.SECRET }}
-            MY_SECRET: ${{ secrets.MY_SECRET }}
-          run: echo "Environment variables set for ML client"
+      - name: Set Environment Variables
+        run: |
+          echo "MONGODB_URI=${{ secrets.MONGODB_URI }}" >> $GITHUB_ENV
+          echo "MONGODB_USERNAME=${{ secrets.MONGODB_USERNAME }}" >> $GITHUB_ENV
+          echo "MONGODB_PASSWORD=${{ secrets.MONGODB_PASSWORD }}" >> $GITHUB_ENV       
+          echo "SECRET=${{ secrets.SECRET }}" >> $GITHUB_ENV   
+          echo "MY_SECRET: ${{ secrets.MY_SECRET }}" >> $GITHUB_ENV   
 
       - name: Start Containers
         run: |
