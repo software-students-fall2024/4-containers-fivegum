@@ -43,7 +43,7 @@ jobs:
 
       - name: Run Tests in Web App
         run: |
-          docker compose exec web-app-container pytest tests/
+          docker compose exec web-app pytest tests/
 
       - name: Shut Down Services
         if: always()
