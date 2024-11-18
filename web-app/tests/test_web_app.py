@@ -1,10 +1,13 @@
 """
 This is the tests for the webapp
 """
+
 from io import BytesIO
 from unittest.mock import patch
+
 # pylint: disable=unused-import
 import pytest
+
 # pylint: disable=unused-import
 from ..app import app, audio_collection, metadata_collection
 
