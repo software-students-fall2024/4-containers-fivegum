@@ -11,13 +11,10 @@ def test_env():
     Tests the retrieval of required environment variables.
     Fails if any of the required variables are not set.
     """
-    DB_URI = getenv("DB_URI")
-    mongodb_username = getenv("MONGODB_USERNAME")
-    mongodb_password = getenv("MONGODB_PASSWORD")
+    connstr = getenv("DB_URI")
+    key = getenv("SECRET")
 
-    if DB_URI is None:
+    if connstr is None:
         pytest.fail("Could not retrieve DB_URI")
-    if mongodb_username is None:
-        pytest.fail("Could not retrieve MONGODB_USERNAME")
-    if mongodb_password is None:
-        pytest.fail("Could not retrieve MONGODB_PASSWORD")
+    if key is None:
+        pytest.fail("Could not retrieve flask secret")
