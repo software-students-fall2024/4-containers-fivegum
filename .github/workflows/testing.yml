@@ -37,10 +37,6 @@ jobs:
         run: |
           docker ps
 
-      - name: Install Dependencies in Web App
-        run: |
-          docker compose exec web-app pip install pytest python-dotenv
-
       - name: Run Tests in Machine Learning Client
         run: |
           docker compose exec machine-learning-client pytest tests/
