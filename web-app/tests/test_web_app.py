@@ -8,7 +8,9 @@ import pytest
 
 
 def test_index(client):
-    """Test that the index route '/' works."""
+    """
+    Test the index route
+    """
     response = client.get("/")
     assert response.status_code == 200
 
@@ -53,7 +55,6 @@ def test_upload_audio(mock_req, mock_md, mock_audio, client):
 @patch("app.audio_collection.insert_one")
 @patch("app.metadata_collection.insert_one")
 def test_db_failure(mock_md, mock_audio, client):
-    """test a failing db"""
     mock_audio.return_value.inserted_id = None
 
     data = {
@@ -67,7 +68,6 @@ def test_db_failure(mock_md, mock_audio, client):
 
 @patch("app.audio_collection.insert_one")
 def test_audio_missing(mock_audio, client):
-    """test a missing audio"""
     response = client.post("/upload-audio", data={"name": "test_audio"})
     assert response.status_code == 400
     assert not mock_audio.called
