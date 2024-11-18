@@ -1,5 +1,5 @@
 """
-This file contains tests for the web app
+This file contains tests for the web app portion
 """
 from io import BytesIO
 from unittest.mock import patch
