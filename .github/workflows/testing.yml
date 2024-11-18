@@ -49,10 +49,15 @@ jobs:
           cd web-app
           pip install pipenv
           pipenv install --dev
+          pipenv install python-dotenv
 
       - name: Run Tests in Web App
         run: |
           cd web-app
+          MONGODB_URI=${{ secrets.MONGODB_URI }} \
+          MONGODB_USERNAME=${{ secrets.MONGODB_USERNAME }} \
+          MONGODB_PASSWORD=${{ secrets.MONGODB_PASSWORD }} \
+          SECRET=${{ secrets.SECRET }} \
           pipenv run pytest tests/
 
       - name: Shut Down Services

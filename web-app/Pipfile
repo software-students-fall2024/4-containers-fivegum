@@ -12,4 +12,4 @@ requests = "*"
 pytest = "*"
 
 [dev-packages]
-
+pytest-dotenv = "*"
