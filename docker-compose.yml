@@ -16,7 +16,7 @@ services:
     depends_on:
       - mongodb
     environment:
-      - DB_URI=${DB_URI}
+      - DB_URI=${MONGODB_URI}
       - MONGODB_USERNAME=${MONGODB_USERNAME}
       - MONGODB_PASSWORD=${MONGODB_PASSWORD}
     command: python3 app.py
@@ -30,7 +30,7 @@ services:
       - mongodb
       - machine-learning-client
     environment:
-      - DB_URI=${DB_URI}
+      - DB_URI=${MONGODB_URI}
       - SECRET=${SECRET}
     ports:
       - "8080:8080"
