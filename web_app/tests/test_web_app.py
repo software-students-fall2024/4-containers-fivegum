@@ -4,6 +4,7 @@ This file contains tests for the web app
 from io import BytesIO
 from unittest.mock import patch
 import pytest
+from web_app.app import app, audio_collection, metadata_collection
 
 
 def mock_test():
@@ -13,20 +14,20 @@ def mock_test():
     assert True
 
 
-# def test_index(client):
-#     """
-#     Test the index route
-#     """
-#     response = client.get("/")
-#     assert response.status_code == 200
-#
-#
-# def test_record_route(client):
-#     """
-#     Test the record route
-#     """
-#     response = client.get("/record")
-#     assert response.status_code == 200
+def test_index(client):
+    """
+    Test the index route
+    """
+    response = client.get("/")
+    assert response.status_code == 200
+
+
+def test_record_route(client):
+    """
+    Test the record route
+    """
+    response = client.get("/record")
+    assert response.status_code == 200
 
 
 @patch("app.audio_collection.insert_one")
