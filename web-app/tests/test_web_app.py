@@ -5,8 +5,8 @@ import sys
 import os
 from io import BytesIO
 from unittest.mock import patch
-import pytest
 import importlib
+import pytest
 
 sys.path.append(os.path.join(os.path.dirname(__file__), 'web-app'))
 app_module = importlib.import_module('app')
