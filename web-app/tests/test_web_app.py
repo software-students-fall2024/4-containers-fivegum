@@ -11,7 +11,7 @@ from unittest.mock import patch
 import pytest
 
 # pylint: disable=unused-import
-from ..app import app, audio_collection, metadata_collection
+from app import app, audio_collection, metadata_collection
 
 
 def test_record_route(test_client):
