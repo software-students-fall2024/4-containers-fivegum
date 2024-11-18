@@ -33,13 +33,27 @@ jobs:
       - name: Wait for MongoDB to be Ready
         run: sleep 3  # Increase the delay as necessary
 
+      - name: Install dependencies for machine learning client
+        run: |
+          cd machine-learning-client
+          pip install pipenv
+          pipenv install --dev
+
       - name: Run Tests in Machine Learning Client
         run: |
-          docker compose exec machine-learning-client pytest tests/
+          cd machine-learning-client
+          pipenv run pytest tests/
+
+      - name: Install dependencies for web app
+        run: |
+          cd web-app
+          pip install pipenv
+          pipenv install --dev
 
       - name: Run Tests in Web App
         run: |
-          docker compose exec web-app pytest tests/
+          cd web-app
+          pipenv run pytest tests/
 
       - name: Shut Down Services
         if: always()
