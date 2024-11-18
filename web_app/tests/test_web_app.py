@@ -6,13 +6,14 @@ import os
 from io import BytesIO
 from unittest.mock import patch
 import importlib
-import pytest
 
 sys.path.append(os.path.join(os.path.dirname(__file__), 'web-app'))
 app_module = importlib.import_module('app')
 app = app_module.app
 audio_collection = app_module.audio_collection
-metadata_collection = app_module.metadata_collectio
+metadata_collection = app_module.metadata_collection
+
+import pytest
 
 
 def mock_test():
