@@ -29,7 +29,8 @@ def test_upload_audio_gridfs_fail(test_client, monkeypatch):
     Test failure in Gridfs
     """
 
-    def mock_put(*args, **kwargs):
+    def mock_put(*args, **kwargs):  # pylint: disable=unused-argument
+        """mock put"""
         return None
 
     monkeypatch.setattr(grid_fs, "put", mock_put)
@@ -51,7 +52,9 @@ def test_upload_audio_metadata(test_client, monkeypatch):
     Test failure during storing metadata
     """
 
-    def mock_insert(metadata):
+    def mock_insert(metadata):  # pylint: disable=unused-argument
+        """Mock insert"""
+
         class Result:
             acknowledged = False
 
@@ -59,7 +62,8 @@ def test_upload_audio_metadata(test_client, monkeypatch):
 
     monkeypatch.setattr(metadata_collection, "insert_one", mock_insert)
 
-    def mock_put(*args, **kwargs):
+    def mock_put(*args, **kwargs):  # pylint: disable=unused-argument
+        """Mock put"""
         return "mock_gridfs"
 
     monkeypatch.setattr(grid_fs, "put", mock_put)
@@ -79,16 +83,21 @@ def test_upload_audio_ml(test_client, monkeypatch):
     Test failure to notify ML client
     """
 
-    def mock_insert(metadata):
+    def mock_insert(metadata):  # pylint: disable=unused-argument
+        """Mock insert"""
+
         class Result:
             acknowledged = True
 
         return Result()
 
-    def mock_put(*args, **kwargs):
+    def mock_put(*args, **kwargs):  # pylint: disable=unused-argument
+        """Mock put"""
         return "mock_gridfs"
 
-    def mock_get(*args, **kwargs):
+    def mock_get(*args, **kwargs):  # pylint: disable=unused-argument
+        """Mock get"""
+
         class Response:
             status_code = 500
             text = "ML client error"
@@ -118,16 +127,21 @@ def test_upload_audio(test_client, monkeypatch):
     Test successful upload
     """
 
-    def mock_insert(metadata):
+    def mock_insert(metadata):  # pylint: disable=unused-argument
+        """Mock insert"""
+
         class Result:
             acknowledged = True
 
         return Result()
 
-    def mock_put(*args, **kwargs):
+    def mock_put(*args, **kwargs):  # pylint: disable=unused-argument
+        """Mock put"""
         return "mock_gridfs"
 
-    def mock_get(*args, **kwargs):
+    def mock_get(*args, **kwargs):  # pylint: disable=unused-argument
+        """Mock get"""
+
         class MockResponse:
             status_code = 200
             text = "Success"
