@@ -53,9 +53,11 @@ def test_upload_audio_metadata(test_client, monkeypatch):
     """
 
     def mock_insert(metadata):  # pylint: disable=unused-argument
-        """Mock insert"""
+        """Mock method"""
 
-        class Result:
+        class Result:  # pylint: disable=too-few-public-methods
+            """Mock result"""
+
             acknowledged = False
 
         return Result()
@@ -84,9 +86,11 @@ def test_upload_audio_ml(test_client, monkeypatch):
     """
 
     def mock_insert(metadata):  # pylint: disable=unused-argument
-        """Mock insert"""
+        """Mock method"""
 
-        class Result:
+        class Result:  # pylint: disable=too-few-public-methods
+            """Mock result"""
+
             acknowledged = True
 
         return Result()
@@ -98,7 +102,9 @@ def test_upload_audio_ml(test_client, monkeypatch):
     def mock_get(*args, **kwargs):  # pylint: disable=unused-argument
         """Mock get"""
 
-        class Response:
+        class Response:  # pylint: disable=too-few-public-methods
+            """mock response"""
+
             status_code = 500
             text = "ML client error"
 
@@ -130,7 +136,9 @@ def test_upload_audio(test_client, monkeypatch):
     def mock_insert(metadata):  # pylint: disable=unused-argument
         """Mock insert"""
 
-        class Result:
+        class Result:  # pylint: disable=too-few-public-methods
+            """Mock result"""
+
             acknowledged = True
 
         return Result()
@@ -142,7 +150,9 @@ def test_upload_audio(test_client, monkeypatch):
     def mock_get(*args, **kwargs):  # pylint: disable=unused-argument
         """Mock get"""
 
-        class MockResponse:
+        class MockResponse:  # pylint: disable=too-few-public-methods
+            """mock response"""
+
             status_code = 200
             text = "Success"
 
