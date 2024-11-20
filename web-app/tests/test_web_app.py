@@ -2,11 +2,6 @@
 This is the tests for the webapp
 """
 
-from datetime import datetime
-import pytest
-from flask import Flask
-from pymongo.collection import Collection
-from gridfs import GridFS
 from io import BytesIO
 
 # pylint: disable=unused-import
