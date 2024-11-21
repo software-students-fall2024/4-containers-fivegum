@@ -3,18 +3,17 @@ body {
   background-color: #f9f8f0;
   margin: 0;
   padding: 0;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
   overflow: auto;
   display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .frame {
-  width: 450px;
-  height: 620px;
-  border: 10px solid #333;
-  background-color: white;
+  border: none;
+  width: auto;
+  height: auto;
   margin: 20px;
   overflow: hidden;
 }
@@ -26,7 +25,6 @@ body {
   box-sizing: border-box;
 }
 
-/* Navigation */
 .navbar {
   margin-bottom: 10px;
 }
@@ -34,21 +32,21 @@ body {
 .navbar .button-container {
   display: flex;
   flex-direction: column;
-  text-align: center;
   align-items: center;
-
 }
 
 .button {
   display: block;
+  width: 100%;
   padding: 15px 0;
-  background-color: #007bff;
-  color: white;
-  text-align: center;
-  text-decoration: none;
   margin-bottom: 25px;
   border-radius: 25px;
   font-size: 1.1rem;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  background-color: #007bff;
+  transition: background-color 0.3s ease;
 }
 
 .button:hover {
@@ -75,16 +73,13 @@ body {
   background-color: #ff0000;
 }
 
-/* Heading */
 h1 {
-  margin-top: 40px;
+  margin: 40px 0 50px;
   font-size: 1.9rem;
-  margin-bottom: 50px;
   color: #333;
   text-align: center;
 }
 
-/* Form */
 form {
   display: flex;
   flex-direction: column;
@@ -103,38 +98,32 @@ form select {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  margin-bottom: 9px;
-  font-size: 0.8rem;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
   width: 100%;
   box-sizing: border-box;
 }
 
-form input[type="checkbox"] {
-  margin-right: 10px;
-}
-
 form button[type="submit"] {
-  padding: 7px 15px;
+  padding: 10px 15px;
   background-color: #28a745;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-top: 10px;
-
+  transition: background-color 0.3s ease;
 }
 
 form button[type="submit"]:hover {
   background-color: #218838;
 }
 
-/* Task List */
 .task-list {
   margin-top: 10px;
 }
 
 .task-item {
-  padding: 6px;
+  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   margin-bottom: 8px;
@@ -146,20 +135,19 @@ form button[type="submit"]:hover {
 }
 
 .task-item p {
-  margin: 3px 0;
+  margin: 5px 0;
   color: #555;
 }
 
-/* Table */
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 13px;
+  margin-bottom: 15px;
 }
 
 table th,
 table td {
-  padding: 7px;
+  padding: 10px;
   text-align: left;
   border: 1px solid #ddd;
 }
@@ -168,7 +156,7 @@ table th {
   background-color: #f4f4f4;
 }
 
-/* Error/Success Messages */
+/* Alerts */
 .alert {
   padding: 15px;
   border-radius: 5px;
@@ -185,77 +173,60 @@ table th {
   color: #721c24;
 }
 
-/* Footer */
 footer {
   margin-top: 12px;
   text-align: center;
   color: #888;
+  font-size: 0.9rem;
 }
 
 @media (max-width: 767px) {
   .container {
-    max-width: 100%;
     padding: 10px;
   }
 
-  .button {
-    padding: 8px 16px;
-    font-size: 0.9rem;
+  h1 {
+    font-size: 1.6rem;
+    margin-bottom: 30px;
   }
 
-  h1 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
+  .button {
+    padding: 10px;
+    font-size: 1rem;
   }
 
   form input[type="text"],
   form input[type="date"],
   form textarea,
   form select {
-    padding: 8px;
     font-size: 0.9rem;
-  }
-
-  form button[type="submit"] {
-    padding: 8px 16px;
-    font-size: 0.9rem;
-  }
-
-  .task-item {
-    padding: 8px;
   }
 
   table th,
   table td {
     padding: 8px;
-  }
-
-  footer {
-    font-size: 0.9rem;
   }
 }
 
 @media (max-width: 480px) {
-
-  table th,
-  table td {
-    font-size: 0.7rem;
-    padding: 3px;
-  }
-
   h1 {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
   }
 
   .button {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
 
   form input[type="text"],
   form input[type="date"],
   form textarea,
   form select {
-    padding: 6px;
+    padding: 8px;
+  }
+
+  table th,
+  table td {
     font-size: 0.8rem;
+    padding: 5px;
   }
 }
