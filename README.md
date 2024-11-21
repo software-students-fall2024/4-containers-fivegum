@@ -46,7 +46,7 @@ MONGODB_URI=mongodb://user:pass@mongodb:27017
 SECRET=your-secret-key
 ```
 
-Note that `MONGODB_URI` must be of the form `mongodb://MONGODB_USERNAME:MONGODB_PASSWORD@mongodb.27017`.
+Note that `MONGODB_URI` must be of the form `mongodb://MONGODB_USERNAME:MONGODB_PASSWORD@mongodb:27017`.
 
 We also include an `.env.example` for your convenience.
 
