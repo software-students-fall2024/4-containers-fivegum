@@ -1,9 +1,9 @@
 """
 Configuring the ML tests
 """
+import warnings
 
 import pytest
-import warnings
 
 # pylint: disable=import-error
 from src.app import app
