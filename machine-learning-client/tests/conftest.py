@@ -2,13 +2,14 @@
 Configuring the ML tests
 """
 
-import pytest
-import warnings
-
-warnings.filterwarnings("ignore", category=RuntimeWarning, module="pydub.utils")
-
 # pylint: disable=import-error
 from src.app import app
+
+import warnings
+
+import pytest
+
+warnings.filterwarnings("ignore", category=RuntimeWarning, module="pydub.utils")
 
 
 @pytest.fixture

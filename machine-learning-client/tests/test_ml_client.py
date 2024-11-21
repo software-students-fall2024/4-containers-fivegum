@@ -2,7 +2,6 @@
 Tests ML client
 """
 
-from io import BytesIO
 from pymongo.errors import PyMongoError
 
 # pylint: disable=unused-import
