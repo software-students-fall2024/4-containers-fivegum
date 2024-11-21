@@ -2,7 +2,6 @@
 Configuring the ML tests
 """
 import warnings
-
 import pytest
 
 # pylint: disable=import-error
