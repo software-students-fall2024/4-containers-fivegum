@@ -12,7 +12,7 @@ A containerized app that performs speech-to-text conversion using machine learni
 
 The Speech-to-Text App consists of three main components:
 1. **Machine Learning Client**: Processes audio data and converts speech to text.
-2. **Web App**: Allows users to display processed text and upload audio files.
+2. **Web App**: Allows users to display processed text and record audio.
 3. **Database**: A MongoDB database storing metadata and transcriptions. 
 
 # Subsystems
@@ -46,35 +46,43 @@ MONGODB_URI=mongodb://user:pass@mongodb:27017
 SECRET=your-secret-key
 ```
 
-To run MongoDB locally using Docker:
-```
-docker run --name mongodb -d -p 27017:27017 mongo
-```
+Note that `MONGODB_URI` must be of the form `mongodb://MONGODB_USERNAME:MONGODB_PASSWORD@mongodb:27017`.
+
+We also include an `.env.example` for your convenience.
 
 # Installation and Usage
 
 ### Steps to Run the Application:
+In our testing environment, we are using `docker compose`, as opposed to `docker-compose`. As such, the instructions will be provided with this utility. 
+
 1. Clone the repo:
    ```
    git clone https://github.com/software-students-fall2024/4-containers-fivegum.git
    cd 4-containers-fivegum
    ```
-2. Start the containers using Docker Compose:
+2. Build the containers:
    ```
-   docker-compose up --build
+   docker compose build
    ```
+3. Run the containers:
+   ```
+   docker compose up
+   ```
+4. Go to `localhost:8080`.
 
 ### Running Tests:
-To run tests for individual subsystems:
-1. Machine Learning Client:
+To run tests for individual subsystems, first ensure the application is runnning with `docker compose up`. 
+We take this approach because the environment variables setup is made easier by using `docker-compose`, as oppoosed to requiring an `.env` for each subsystem in order to test.
+
+Once the containers are up, you can proceed to the instructions below.
+
+1. Testing the Machine Learning Client:
    ```
-   cd machine-learning-client
-   pytest
+   docker compose exec machine-learning-client pytest tests/
    ```
-2. Web App:
+2. Testing the Web App:
    ```
-   cd web-app
-   pytest
+   docker compose exec web-app pytest tests/
    ```
 
 # Group Members
