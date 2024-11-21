@@ -18,6 +18,5 @@ COPY . .
 EXPOSE 5050
 
 ENV FLASK_APP=src/app.py
-ENV FLASK_ENV=development  
 
-CMD ["flask", "run", "--host=0.0.0.0", "--port=5050", "--debug"]
+CMD ["flask", "run", "--host=0.0.0.0", "--port=5050"]

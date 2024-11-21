@@ -7,8 +7,6 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=${MONGODB_PASSWORD}
     volumes:
       - ./data:/data/db
-    ports:
-      - "27017:27017"
 
   machine-learning-client:
     build: ./machine-learning-client
@@ -20,12 +18,9 @@ services:
       - MONGODB_USERNAME=${MONGODB_USERNAME}
       - MONGODB_PASSWORD=${MONGODB_PASSWORD}
       - PYTHONPATH=/project
-      - PYTHONUNBUFFERED=1
     volumes:
       - ./machine-learning-client:/project
     working_dir: /project
-    ports:
-      - "5050:5050"
 
   web-app:
     build: ./web-app
@@ -37,7 +32,6 @@ services:
       - DB_URI=${MONGODB_URI}
       - SECRET=${SECRET}
       - PYTHONPATH=/project
-      - PYTHONUNBUFFERED=1
     volumes:
       - ./web-app:/project
     working_dir: /project
